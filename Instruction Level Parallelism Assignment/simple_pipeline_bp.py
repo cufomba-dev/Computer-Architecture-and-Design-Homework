@@ -81,7 +81,9 @@ binary = os.path.join(
 # Add branch predictor
 system.cpu.branchPred = BiModeBP()
 system.cpu.branchPred.globalPredictorSize = 4096
+system.cpu.branchPred.choicePredictorSize = 4096
 system.cpu.branchPred.globalCtrBits = 2
+system.cpu.branchPred.choiceCtrBits = 2
 
 system.workload = SEWorkload.init_compatible(binary)
 
