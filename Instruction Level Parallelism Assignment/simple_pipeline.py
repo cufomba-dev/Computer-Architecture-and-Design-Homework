@@ -11,7 +11,6 @@ from caches import *
 # import the SimpleOpts module
 from common import SimpleOpts
 
-
 # Create the system
 system = System()
 
@@ -29,6 +28,15 @@ system.mem_ranges = [AddrRange("512MiB")]
 
 # Create CPU with O3 pipeline for visualization
 system.cpu = X86O3CPU()
+
+# Configure pipeline stages for visualization
+system.cpu.fetchWidth = 4
+system.cpu.decodeWidth = 4
+system.cpu.renameWidth = 4
+system.cpu.dispatchWidth = 4
+system.cpu.issueWidth = 4
+system.cpu.wbWidth = 4
+system.cpu.commitWidth = 4
 
 # Create memory bus 
 system.membus = SystemXBar()
